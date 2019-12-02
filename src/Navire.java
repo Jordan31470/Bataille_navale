@@ -1,3 +1,5 @@
+import java.util.List;
+import java.util.ListIterator;
 
 public class Navire {
 	int taille;
@@ -6,8 +8,9 @@ public class Navire {
 	//int positionY;
 	Direction direction;
 	Coordonne coordonne;
+	List<Case>cases;
 	
-	public Navire(int taille,String nom, int positionX,int positionY,Direction direction) {
+	public Navire(int taille,String nom,Coordonne coordonne,Direction direction) {
 		this.direction = direction;
 		this.taille = taille;
 		this.nom = nom;
@@ -54,5 +57,11 @@ public class Navire {
 				}
 				
 		}
+	}
+	
+	public Boolean estCoule() {
+		 ListIterator<String> it = this.cases.listIterator();
+	      while(it.hasNext()){
+	         System.out.println(it.next());
 	}
 }
