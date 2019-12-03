@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.List;
 import java.util.ListIterator;
 
@@ -8,7 +9,7 @@ public class Navire {
 	//int positionY;
 	Direction direction;
 	Coordonne coordonne;
-	List<Case>cases;
+	ArrayList<Case>caseList;
 	
 	public Navire(int taille,String nom,Coordonne coordonne,Direction direction) {
 		this.direction = direction;
@@ -24,7 +25,7 @@ public class Navire {
 
 	public Boolean estDansCase(Case cas) { 
 		if (this.direction == this.direction.SUD) {
-			if (this.coordonne.x == cas.coordonne.x && this.coordonne.y >= cas.coordonne.y && this.coordonne.y <= cas.coordonne.y + this.taille-1) {
+			if (this.coordonne.getX() == cas.getCoordonne().getX() && this.coordonne.getY() >= cas.getCoordonne().getY() && this.coordonne.getY() <= cas.getCoordonne().getY() + this.taille-1) {
 				return true;
 			}else {
 				return false;
@@ -32,21 +33,21 @@ public class Navire {
 		}
 			else {
 				if (this.direction == this.direction.NORD) {
-					if (this.coordonne.x == cas.coordonne.x && this.coordonne.y <= cas.coordonne.y  && this.coordonne.y >= cas.coordonne.y  - this.taille-1) {
+					if (this.coordonne.getX() == cas.getCoordonne().getX() && this.coordonne.getY() <= cas.getCoordonne().getY()  && this.coordonne.getY() >= cas.getCoordonne().getY()  - this.taille-1) {
 						return true;
 					}else {
 						return false;
 					}
 				}else { 
 					if (this.direction == this.direction.EST) {
-						if (this.coordonne.y == cas.coordonne.y && this.coordonne.x <= cas.coordonne.y && this.coordonne.x >= cas.coordonne.x + this.taille-1) {
+						if (this.coordonne.getY() == cas.getCoordonne().getY() && this.coordonne.getX() <= cas.getCoordonne().getY() && this.coordonne.getX() >= cas.getCoordonne().getX() + this.taille-1) {
 							return true;
 						}else {
 							return false;
 						}
 						}else {
 							if (this.direction == this.direction.OUEST) {
-								if (this.coordonne.y == cas.coordonne.y  && this.coordonne.x >= cas.coordonne.y && this.coordonne.x <= cas.coordonne.x - this.taille-1) {
+								if (this.coordonne.getY() == cas.getCoordonne().getY()  && this.coordonne.getX() >= cas.getCoordonne().getY() && this.coordonne.getX() <= cas.getCoordonne().getX() - this.taille-1) {
 									return true;
 								}else {
 									return false;
@@ -60,8 +61,12 @@ public class Navire {
 	}
 	
 	public Boolean estCoule() {
-		 ListIterator<String> it = this.cases.listIterator();
-	      while(it.hasNext()){
-	         System.out.println(it.next());
+		
+		
 	}
-}
+	      
+	      
+	    	  
+	      }
+
+	
