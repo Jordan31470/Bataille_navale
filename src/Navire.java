@@ -3,13 +3,28 @@ import java.util.List;
 import java.util.ListIterator;
 
 public class Navire {
-	int taille;
-	String nom;
-	//int positionX;
-	//int positionY;
-	Direction direction;
-	Coordonne coordonne;
-	List<Case>caseList;
+	private int taille;
+	private String nom;
+	private Direction direction;
+	private Coordonne coordonne;
+	private List<Case>caseList;
+	
+	
+	public int getTaille() {
+		return taille;
+	}
+	public String getNom() {
+		return nom;
+	}
+	public Direction getDirection() {
+		return direction;
+	}
+	public Coordonne getCoordonne() {
+		return coordonne;
+	}
+	public List<Case> getCaseList() {
+		return caseList;
+	}
 	
 	public Navire(int taille,String nom,Coordonne coordonne,Direction direction) {
 		this.direction = direction;
@@ -19,7 +34,7 @@ public class Navire {
 		//this.positionY = positionY;
 		this.coordonne = coordonne;
 	}
-	public void tirer() {
+	public void tirer(Case c) {
 		
 	}
 
@@ -60,11 +75,17 @@ public class Navire {
 		}
 	}
 	
-	//public Boolean estCoule() {
+	public Boolean estCoule() {
+		for (Case currentCase :this.caseList) {
+			Case c = currentCase;
+			if(! c.isTouche()) {
+				return false;
+			}
+		}
+		return true;
 		
 		
-		
-	//	}
+		}
 	@Override
 	public int hashCode() {
 		final int prime = 31;
