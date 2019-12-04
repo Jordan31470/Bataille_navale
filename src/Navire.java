@@ -9,7 +9,7 @@ public class Navire {
 	//int positionY;
 	Direction direction;
 	Coordonne coordonne;
-	ArrayList<Case>caseList;
+	List<Case>caseList;
 	
 	public Navire(int taille,String nom,Coordonne coordonne,Direction direction) {
 		this.direction = direction;
@@ -60,9 +60,51 @@ public class Navire {
 		}
 	}
 	
-	public Boolean estCoule() {
+	//public Boolean estCoule() {
 		
 		
+		
+	//	}
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((caseList == null) ? 0 : caseList.hashCode());
+		result = prime * result + ((coordonne == null) ? 0 : coordonne.hashCode());
+		result = prime * result + ((direction == null) ? 0 : direction.hashCode());
+		result = prime * result + ((nom == null) ? 0 : nom.hashCode());
+		result = prime * result + taille;
+		return result;
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Navire other = (Navire) obj;
+		if (caseList == null) {
+			if (other.caseList != null)
+				return false;
+		} else if (!caseList.equals(other.caseList))
+			return false;
+		if (coordonne == null) {
+			if (other.coordonne != null)
+				return false;
+		} else if (!coordonne.equals(other.coordonne))
+			return false;
+		if (direction != other.direction)
+			return false;
+		if (nom == null) {
+			if (other.nom != null)
+				return false;
+		} else if (!nom.equals(other.nom))
+			return false;
+		if (taille != other.taille)
+			return false;
+		return true;
 	}
 	      
 	      
